@@ -34,7 +34,13 @@
 
       <div class="mb-3">
         <label for="image" class="form-label">Upload Listing Image</label>
-        <input class="form-control" name="Listing[image]" type="file" />
+        <input
+          class="form-control"
+          name="Listing[image]"
+          type="file"
+          required
+        />
+        <div class="invalid-feedback">Upload Image</div>
       </div>
 
       <div class="row">

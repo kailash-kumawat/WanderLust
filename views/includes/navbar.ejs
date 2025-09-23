@@ -20,6 +20,46 @@
     border-radius: 25px;
     padding: 0.5rem 3rem 0.5rem 3rem;
   }
+
+  .container-fluid {
+    width: auto;
+  }
+
+  @media screen and (max-width: 768px) {
+    .nav-link {
+      margin-left: -221px;
+      margin-left: -60vw;
+    }
+    .container-fluid {
+      width: -webkit-fill-available;
+    }
+
+    /* .navbar-nav {
+      margin: 0 !important;
+    } */
+
+    .navbar-collapse {
+      background-color: #ffe6e6;
+      height: 42rem;
+      border-top-left-radius: 21px;
+      border-top-right-radius: 21px;
+      margin-top: 4px;
+    }
+
+    .userAuthSec {
+      margin-left: 0 !important;
+      display: flex;
+      align-items: center;
+      height: 58%;
+      justify-content: space-between;
+      /* margin-bottom: -163px; */
+      margin-top: 20px;
+    }
+
+    .userAuth {
+      margin: 0;
+    }
+  }
 </style>
 
 <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
@@ -27,6 +67,7 @@
     <a class="navbar-brand" href="/listings"
       ><i class="fa-regular fa-compass"></i
     ></a>
+    <a class="nav-link" href="/listings">Explore</a>
     <button
       class="navbar-toggler"
       type="button"
@@ -35,33 +76,38 @@
     >
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-link" href="/listings">Explore</a>
-      </div>
+  </div>
 
-      <div class="navbar-nav ms-auto">
-        <form class="d-flex" role="search">
-          <input
-            class="form-control me-2 search-inp"
-            type="search"
-            placeholder="Search Destinations"
-          />
-          <button class="btn search-btn" type="submit">
-            <i class="fa-solid fa-magnifying-glass"></i>Search
-          </button>
-        </form>
-      </div>
+  <!-- <div class="navbar-nav">
+    <a class="nav-link" href="/listings">Explore</a>
+  </div> -->
 
-      <div class="navbar-nav ms-auto">
-        <a class="nav-link" href="/listings/new">Airbnb your home</a>
-        <% if(!currUser) { %>
-        <a class="nav-link" href="/signup"><b>Signup</b></a>
-        <a class="nav-link" href="/login"><b>Login</b></a>
-        <% } %> <% if(currUser) { %>
-        <a class="nav-link" href="/logout"><b>Logout</b></a>
-        <% } %>
-      </div>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <!-- <div class="navbar-nav">
+      <a class="nav-link" href="/listings">Explore</a>
+    </div> -->
+
+    <div class="navbar-nav ms-auto">
+      <form class="d-flex" role="search">
+        <input
+          class="form-control me-2 search-inp"
+          type="search"
+          placeholder="Search Destinations"
+        />
+        <button class="btn search-btn" type="submit">
+          <i class="fa-solid fa-magnifying-glass"></i>Search
+        </button>
+      </form>
+    </div>
+
+    <div class="navbar-nav ms-auto userAuthSec">
+      <a class="nav-link userAuth" href="/listings/new">Airbnb your home</a>
+      <% if(!currUser) { %>
+      <a class="nav-link userAuth" href="/signup"><b>Signup</b></a>
+      <a class="nav-link userAuth" href="/login"><b>Login</b></a>
+      <% } %> <% if(currUser) { %>
+      <a class="nav-link userAuth" href="/logout"><b>Logout</b></a>
+      <% } %>
     </div>
   </div>
 </nav>

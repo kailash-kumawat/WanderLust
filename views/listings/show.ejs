@@ -12,7 +12,9 @@
       alt="listing-image"
     />
     <div class="card-body">
-      <p class="card-text">Owned by <i><%= listing.owner.username %></i></p>
+      <p class="card-text">
+        Owned by <i><%= listing.owner?.username || "Kailash" %></i>
+      </p>
       <p class="card-text"><%= listing.description %></p>
       <p class="card-text">
         &#8377;<%= listing.price.toLocaleString("en-IN") %>
@@ -127,6 +129,9 @@
             data-rating="<%= review.rating %>"
           ></p>
           <p class="card-text"><%= review.comment %></p>
+
+          <!-- yha se strt krna hai -->
+          <% if(review.id) { %>
           <form
             class="mb-3"
             method="POST"
@@ -134,6 +139,7 @@
           >
             <button class="btn btn-sm btn-dark">Delete Review</button>
           </form>
+          <% } %>
         </div>
       </div>
       <% } %>

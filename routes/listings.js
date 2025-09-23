@@ -28,7 +28,7 @@ router
     isLoggedIn,
     isOwner,
     upload.single("Listing[image]"),
-    validateListing,
+    validateListing, 
     wrapAsync(listingController.updateListing)
   ) //UPDATE ROUTE
   .delete(isLoggedIn, isOwner, wrapAsync(listingController.destroyListing)); //DELETE ROUTE
