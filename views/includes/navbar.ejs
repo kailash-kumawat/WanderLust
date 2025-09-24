@@ -25,6 +25,11 @@
     width: auto;
   }
 
+  .navbar-collapse {
+    display: flex;
+    justify-content: center;
+  }
+
   @media screen and (max-width: 768px) {
     .nav-link {
       margin-left: -221px;
@@ -32,32 +37,6 @@
     }
     .container-fluid {
       width: -webkit-fill-available;
-    }
-
-    /* .navbar-nav {
-      margin: 0 !important;
-    } */
-
-    .navbar-collapse {
-      background-color: #ffe6e6;
-      height: 42rem;
-      border-top-left-radius: 21px;
-      border-top-right-radius: 21px;
-      margin-top: 4px;
-    }
-
-    .userAuthSec {
-      margin-left: 0 !important;
-      display: flex;
-      align-items: center;
-      height: 58%;
-      justify-content: space-between;
-      /* margin-bottom: -163px; */
-      margin-top: 20px;
-    }
-
-    .userAuth {
-      margin: 0;
     }
   }
 </style>
@@ -78,16 +57,9 @@
     </button>
   </div>
 
-  <!-- <div class="navbar-nav">
-    <a class="nav-link" href="/listings">Explore</a>
-  </div> -->
-
+  <!-- RESPONSIVE NAVBAR NEED TO UPDATE -->
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <!-- <div class="navbar-nav">
-      <a class="nav-link" href="/listings">Explore</a>
-    </div> -->
-
-    <div class="navbar-nav ms-auto">
+    <div class="navbar-nav">
       <form class="d-flex" role="search">
         <input
           class="form-control me-2 search-inp"
@@ -100,7 +72,7 @@
       </form>
     </div>
 
-    <div class="navbar-nav ms-auto userAuthSec">
+    <!-- <div class="navbar-nav ms-auto userAuthSec">
       <a class="nav-link userAuth" href="/listings/new">Airbnb your home</a>
       <% if(!currUser) { %>
       <a class="nav-link userAuth" href="/signup"><b>Signup</b></a>
@@ -108,6 +80,6 @@
       <% } %> <% if(currUser) { %>
       <a class="nav-link userAuth" href="/logout"><b>Logout</b></a>
       <% } %>
-    </div>
+    </div> -->
   </div>
 </nav>
