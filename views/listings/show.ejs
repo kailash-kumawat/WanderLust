@@ -1,7 +1,7 @@
 <% layout("/layouts/boilerplate")-%>
 
 <div class="row mt-3">
-  <div class="col-12 offset-lg-3">
+  <div class="col-span-12 col-lg-6 offset-lg-3">
     <h3><%= listing.title %></h3>
   </div>
 
@@ -39,7 +39,7 @@
   <% } %>
 
   <!-- REVIEW SECTION -->
-  <div class="col-12 mb-3 mt-3">
+  <div class="col-12 col-lg-12 mb-3 mt-3">
     <hr />
     <% if(currUser) { %>
     <h4>Leave a Review</h4>
@@ -126,21 +126,27 @@
       <% for(review of listing.reviews) { %>
       <div class="card col-span-12 mb-3">
         <div class="card-body">
-          <h5 class="card-title"><%= review.author.username %></h5>
+          <!-- <h5 class="card-title"><%= review.author.username %></h5> -->
+          <h6 class="card-text">@<%= review.author.email.split("@")[0] %></h6>
+          <p class="card-text">
+            <%= formatDistance(new Date(review.createdAt), new Date(),
+            {addSuffix: true}) %>
+          </p>
           <p
             class="starability-result card-text"
             data-rating="<%= review.rating %>"
           ></p>
           <p class="card-text"><%= review.comment %></p>
 
-          <!-- yha se strt krna hai -->
+          <!-- DELETE REVIEW -->
           <% if(review.id) { %>
           <form
             class="mb-3"
             method="POST"
             action="/listings/<%= listing.id %>/reviews/<%= review.id %>"
           >
-            <button class="btn btn-sm btn-dark">Delete Review</button>
+            <!-- <button class="btn btn-sm btn-dark">Delete Review</button> -->
+            <button class="btn"><i class="bi bi-trash3"></i></button>
           </form>
           <% } %>
         </div>

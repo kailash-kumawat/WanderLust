@@ -1,4 +1,5 @@
 const Listing = require("../models/listing");
+const { formatDistance } = require("date-fns");
 
 module.exports.index = async (req, res) => {
   const allListings = await Listing.find({});
@@ -23,8 +24,9 @@ module.exports.showListing = async (req, res) => {
     req.flash("error", "Listing does not exist!!");
     res.redirect("/listings");
   }
+  //REMOVE AFTER UPDATE
   console.log(listing);
-  res.render("listings/show.ejs", { listing });
+  res.render("listings/show.ejs", { listing, formatDistance });
 };
 
 module.exports.createListing = async (req, res, next) => {
