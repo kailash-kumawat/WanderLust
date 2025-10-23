@@ -1,18 +1,20 @@
 <% layout("/layouts/boilerplate")-%>
 
 <div class="row mt-3">
-  <div class="col-8 offset-3">
+  <div class="col-span-12 col-lg-6 offset-lg-3">
     <h3><%= listing.title %></h3>
   </div>
 
-  <div class="card col-6 offset-3 show-card listing-card">
+  <div class="card col-span-12 col-lg-6 offset-lg-3 listing-card">
     <img
       src="<%= listing.image.url %>"
       class="card-img-top show-img"
       alt="listing-image"
     />
     <div class="card-body">
-      <p class="card-text">Owned by <i><%= listing.owner.username %></i></p>
+      <p class="card-text">
+        Owned by <i><%= listing.owner?.username || "Unknown" %></i>
+      </p>
       <p class="card-text"><%= listing.description %></p>
       <p class="card-text">
         &#8377;<%= listing.price.toLocaleString("en-IN") %>
@@ -37,7 +39,7 @@
   <% } %>
 
   <!-- REVIEW SECTION -->
-  <div class="col-8 offset-3 mb-3 mt-3">
+  <div class="col-12 col-lg-12 mb-3 mt-3">
     <hr />
     <% if(currUser) { %>
     <h4>Leave a Review</h4>
@@ -47,6 +49,7 @@
       novalidate
       class="needs-validation"
     >
+      <!-- rating section -->
       <div class="mb-3 mt-3">
         <label for="rating" class="form-label">Rating</label>
         <fieldset class="starability-coinFlip">
@@ -96,6 +99,8 @@
           <label for="first-rate5" title="Amazing">5 stars</label>
         </fieldset>
       </div>
+
+      <!-- comment section -->
       <div class="mb-3 mt-3">
         <label for="comment" class="form-label">Comment</label>
         <textarea
@@ -116,24 +121,34 @@
 
     <!-- RENDERING REVIEWS -->
     <% if(listing.reviews.length > 0) { %>
-    <div class="row">
+    <div class="">
       <p><b>All Reviews</b></p>
       <% for(review of listing.reviews) { %>
-      <div class="card col-5 ms-3 mb-3">
+      <div class="card col-span-12 mb-3">
         <div class="card-body">
-          <h5 class="card-title"><%= review.author.username %></h5>
+          <!-- <h5 class="card-title"><%= review.author.username %></h5> -->
+          <h6 class="card-text">@<%= review.author.email.split("@")[0] %></h6>
+          <p class="card-text">
+            <%= formatDistance(new Date(review.createdAt), new Date(),
+            {addSuffix: true}) %>
+          </p>
           <p
             class="starability-result card-text"
             data-rating="<%= review.rating %>"
           ></p>
           <p class="card-text"><%= review.comment %></p>
+
+          <!-- DELETE REVIEW -->
+          <% if(review.id) { %>
           <form
             class="mb-3"
             method="POST"
             action="/listings/<%= listing.id %>/reviews/<%= review.id %>"
           >
-            <button class="btn btn-sm btn-dark">Delete Review</button>
+            <!-- <button class="btn btn-sm btn-dark">Delete Review</button> -->
+            <button class="btn"><i class="bi bi-trash3"></i></button>
           </form>
+          <% } %>
         </div>
       </div>
       <% } %>

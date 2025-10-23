@@ -3,100 +3,145 @@
 <style>
   #filters {
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .filters-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    white-space: nowrap;
+    gap: 15px;
+    padding: 10px 0;
+  }
+
+  .filters-container::-webkit-scrollbar {
+    display: none;
   }
 
   .filter {
     text-align: center;
-    margin-top: 1rem;
-    margin-right: 2rem;
-    opacity: 0.7;
-  }
-
-  .filter:hover {
-    opacity: 1;
+    min-width: 80px;
     cursor: pointer;
   }
 
-  .filter p {
-    font-size: 0.8rem;
+  .nav-btn {
+    display: none;
+    position: absolute;
+    top: 35px;
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+  }
+
+  .nav-btn.left {
+    left: 0;
+    top: 17px;
+    border-radius: 50%;
+    padding: 0;
+    height: 30px;
+    width: 30px;
+    border: 1px solid #2222228a;
+    color: black;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .nav-btn.right {
+    right: 0;
+    top: 17px;
+    border-radius: 50%;
+    padding: 0;
+    height: 30px;
+    width: 30px;
+    border: 1px solid #2222228a;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @media screen and (max-width: 768px) {
+    .nav-btn {
+      display: block;
+    }
+    .filter p {
+      font-size: 3vw;
+    }
+  }
+
+  .tax-toggle {
+    margin-top: 10px;
+    padding: 10px;
+    background: #f8f8f8;
+    border-radius: 8px;
+    text-align: center;
   }
 
   .tax-info {
     display: none;
   }
-
-  .tax-toggle {
-    height: 3.25rem;
-    border: 1px solid black;
-    border-radius: 1rem;
-    padding: 1rem;
-    margin-left: 5rem;
-    display: flex;
-    align-items: center;
-  }
 </style>
 
 <div id="filters">
-  <div class="filter">
-    <div><i class="fa-solid fa-fire"></i></div>
-    <p>Trending</p>
-  </div>
-  <div class="filter">
-    <div><i class="fa-solid fa-bed"></i></div>
-    <p>Rooms</p>
-  </div>
-  <div class="filter">
-    <div><i class="fa-solid fa-mountain-city"></i></div>
-    <p>Iconic Cities</p>
-  </div>
-  <div class="filter">
-    <div><i class="fa-solid fa-mountain"></i></div>
-    <p>Mountains</p>
-  </div>
-  <div class="filter">
-    <div><i class="fa-brands fa-fort-awesome"></i></div>
-    <p>Castles</p>
-  </div>
-  <div class="filter">
-    <div><i class="fa-solid fa-person-swimming"></i></div>
-    <p>Amazing Pools</p>
-  </div>
-  <div class="filter">
-    <div><i class="fa-solid fa-campground"></i></div>
-    <p>Camping</p>
-  </div>
-  <div class="filter">
-    <div><i class="fa-solid fa-cow"></i></div>
-    <p>Farms</p>
-  </div>
-  <div class="filter">
-    <div><i class="fa-regular fa-snowflake"></i></div>
-    <p>Arctic</p>
-  </div>
-  <div class="filter">
-    <div><i class="fa-solid fa-igloo"></i></div>
-    <p>Domes</p>
-  </div>
-  <div class="filter">
-    <div><i class="fa-solid fa-ship"></i></div>
-    <p>Boats</p>
-  </div>
+  <button class="nav-btn left" id="prev">&#10094;</button>
 
-  <div class="tax-toggle">
-    <div class="form-check-reverse form-switch">
-      <input
-        class="form-check-input"
-        type="checkbox"
-        role="switch"
-        id="flexSwitchCheckDefault"
-      />
-      <label class="form-check-label" for="flexSwitchCheckDefault"
-        >Display total after taxes</label
-      >
+  <div class="filters-container">
+    <div class="filter">
+      <div><i class="fa-solid fa-fire"></i></div>
+      <p>Trending</p>
+    </div>
+    <div class="filter">
+      <div><i class="fa-solid fa-bed"></i></div>
+      <p>Rooms</p>
+    </div>
+    <div class="filter">
+      <div><i class="fa-solid fa-mountain-city"></i></div>
+      <p>Iconic Cities</p>
+    </div>
+    <div class="filter">
+      <div><i class="fa-solid fa-mountain"></i></div>
+      <p>Mountains</p>
+    </div>
+    <div class="filter">
+      <div><i class="fa-brands fa-fort-awesome"></i></div>
+      <p>Castles</p>
+    </div>
+    <div class="filter">
+      <div><i class="fa-solid fa-person-swimming"></i></div>
+      <p>Amazing Pools</p>
+    </div>
+    <div class="filter">
+      <div><i class="fa-solid fa-campground"></i></div>
+      <p>Camping</p>
+    </div>
+    <div class="filter">
+      <div><i class="fa-solid fa-cow"></i></div>
+      <p>Farms</p>
+    </div>
+    <div class="filter">
+      <div><i class="fa-regular fa-snowflake"></i></div>
+      <p>Arctic</p>
+    </div>
+    <div class="filter">
+      <div><i class="fa-solid fa-igloo"></i></div>
+      <p>Domes</p>
+    </div>
+    <div class="filter">
+      <div><i class="fa-solid fa-ship"></i></div>
+      <p>Boats</p>
     </div>
   </div>
+
+  <button class="nav-btn right" id="next">&#10095;</button>
 </div>
 
 <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
@@ -123,16 +168,17 @@
 </div>
 
 <script>
-  let taxSwitch = document.getElementById("flexSwitchCheckDefault");
-  taxSwitch.addEventListener("click", () => {
-    let taxInfo = document.getElementsByClassName("tax-info");
+  document.addEventListener("DOMContentLoaded", function () {
+    const container = document.querySelector(".filters-container");
+    const prev = document.getElementById("prev");
+    const next = document.getElementById("next");
 
-    for (info of taxInfo) {
-      if (info.style.display != "inline") {
-        info.style.display = "inline";
-      } else {
-        info.style.display = "none";
-      }
-    }
+    prev.addEventListener("click", () => {
+      container.scrollBy({ left: -100, behavior: "smooth" });
+    });
+
+    next.addEventListener("click", () => {
+      container.scrollBy({ left: 100, behavior: "smooth" });
+    });
   });
 </script>
