@@ -41,7 +41,7 @@
   }
 </style>
 
-<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+<!-- <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
   <div class="container-fluid">
     <a class="navbar-brand" href="/listings"
       ><i class="fa-regular fa-compass"></i
@@ -57,7 +57,7 @@
     </button>
   </div>
 
-  <!-- RESPONSIVE NAVBAR NEED TO UPDATE -->
+  
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
       <form class="d-flex" role="search">
@@ -72,7 +72,7 @@
       </form>
     </div>
 
-    <!-- <div class="navbar-nav ms-auto userAuthSec">
+    <div class="navbar-nav ms-auto userAuthSec">
       <a class="nav-link userAuth" href="/listings/new">Airbnb your home</a>
       <% if(!currUser) { %>
       <a class="nav-link userAuth" href="/signup"><b>Signup</b></a>
@@ -80,6 +80,101 @@
       <% } %> <% if(currUser) { %>
       <a class="nav-link userAuth" href="/logout"><b>Logout</b></a>
       <% } %>
-    </div> -->
+    </div>
+  </div>
+</nav> -->
+
+<style>
+  .search-btn {
+    background-color: #fe424d;
+    color: #fff;
+    border-radius: 25px;
+    padding: 0 1rem 0 1rem;
+  }
+
+  .search-btn:hover {
+    background-color: #fe424d;
+    color: #fff;
+  }
+
+  .search-btn i {
+    display: inline;
+    margin-right: 0.5rem;
+  }
+
+  .search-inp {
+    border-radius: 25px;
+    padding: 0.5rem 3rem 0.5rem 3rem;
+  }
+
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* left - center - right */
+  }
+
+  .left-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .center-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  .right-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .center-section {
+      order: 3;
+      margin-top: 1rem;
+    }
+    .right-section {
+      order: 2;
+    }
+  }
+</style>
+
+<nav
+  class="navbar navbar-expand-md bg-body-light border-bottom sticky-top px-3"
+>
+  <!-- LEFT -->
+  <div class="left-section">
+    <a class="navbar-brand" href="/listings">
+      <i class="fa-regular fa-compass text-danger"></i>
+    </a>
+    <a class="nav-link" href="/listings">Explore</a>
+  </div>
+
+  <!-- CENTER -->
+  <div class="center-section">
+    <form class="d-flex" role="search">
+      <input
+        class="form-control me-2 search-inp"
+        type="search"
+        placeholder="Search Destinations"
+      />
+      <button class="btn search-btn" type="submit">
+        <i class="fa-solid fa-magnifying-glass"></i>Search
+      </button>
+    </form>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="right-section">
+    <a class="nav-link userAuth" href="/listings/new">Airbnb your home</a>
+    <% if(!currUser) { %>
+    <a class="nav-link userAuth" href="/signup"><b>Signup</b></a>
+    <a class="nav-link userAuth" href="/login"><b>Login</b></a>
+    <% } %> <% if(currUser) { %>
+    <a class="nav-link userAuth" href="/logout"><b>Logout</b></a>
+    <% } %>
   </div>
 </nav>
