@@ -19,7 +19,7 @@ const User = require("./models/user.js");
 const reviewRouter = require("./routes/reviews.js");
 const listingRouter = require("./routes/listings.js");
 const userRouter = require("./routes/user.js");
-const { error } = require("console");
+const { error, log } = require("console");
 
 const dbUrl = process.env.ATLASDB_URL;
 
@@ -30,7 +30,7 @@ main()
   .catch((err) => console.log(err));
 
 async function main() {
-  await mongoose.connect(dbUrl);
+  mongoose.connect(dbUrl);
 }
 
 app.set("view engine", "ejs");
