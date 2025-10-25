@@ -1,4 +1,4 @@
-<style>
+<!-- <style>
   .search-btn {
     background-color: #fe424d;
     color: #fff;
@@ -39,7 +39,7 @@
       width: -webkit-fill-available;
     }
   }
-</style>
+</style> -->
 
 <!-- <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
   <div class="container-fluid">
@@ -57,7 +57,6 @@
     </button>
   </div>
 
-  
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
       <form class="d-flex" role="search">
@@ -72,7 +71,7 @@
       </form>
     </div>
 
-    <div class="navbar-nav ms-auto userAuthSec">
+    <div class="navbar-nav userAuthSec">
       <a class="nav-link userAuth" href="/listings/new">Airbnb your home</a>
       <% if(!currUser) { %>
       <a class="nav-link userAuth" href="/signup"><b>Signup</b></a>
@@ -84,7 +83,7 @@
   </div>
 </nav> -->
 
-<style>
+<!-- <style>
   .search-btn {
     background-color: #fe424d;
     color: #fff;
@@ -140,12 +139,12 @@
       order: 2;
     }
   }
-</style>
+</style> -->
 
-<nav
-  class="navbar navbar-expand-md bg-body-light border-bottom sticky-top px-3"
+<!-- <nav
+  class="navbar bg-body-light border-bottom sticky-top px-3"
+  style="display: inline"
 >
-  <!-- LEFT -->
   <div class="left-section">
     <a class="navbar-brand" href="/listings">
       <i class="fa-regular fa-compass text-danger"></i>
@@ -153,7 +152,6 @@
     <a class="nav-link" href="/listings">Explore</a>
   </div>
 
-  <!-- CENTER -->
   <div class="center-section">
     <form class="d-flex" role="search">
       <input
@@ -167,7 +165,6 @@
     </form>
   </div>
 
-  <!-- RIGHT -->
   <div class="right-section">
     <a class="nav-link userAuth" href="/listings/new">Airbnb your home</a>
     <% if(!currUser) { %>
@@ -176,5 +173,143 @@
     <% } %> <% if(currUser) { %>
     <a class="nav-link userAuth" href="/logout"><b>Logout</b></a>
     <% } %>
+  </div>
+</nav> -->
+
+<!-- <nav class="navbar bg-white border-bottom border-body" data-bs-theme="light">
+  <div class="container-fluid">
+    <a class="navbar-brand">Navbar</a>
+    <form class="d-flex" role="search">
+      <input
+      class="form-control me-2"
+      type="search"
+      placeholder="Search"
+      aria-label="Search"
+      />
+      <button class="btn search-btn" type="submit">Search</button>
+    </form>
+  </div>
+</nav> -->
+
+<style>
+  /* #navbarSupportedContent {
+    width: 50% !important;
+    display: flex;
+  } */
+</style>
+
+<style>
+  .btn-outline-custom {
+    /* color: #fe424d; */
+    background-color: #fe424d;
+    /* background-color: #3bafda; */
+    /* background-color: #dc3545; */
+    color: #fff;
+  }
+
+  .btn-outline-custom:hover {
+    /* background-color: #3bafda; */
+    background-color: #fe424d;
+    color: #fff;
+  }
+
+  .navbar-collapse {
+    z-index: 100;
+  }
+
+  @media (max-width: 991px) {
+    .navbar-collapse.show {
+      height: 100vh !important;
+      margin-top: 20px;
+      position: absolute;
+      top: 56px;
+      left: 0;
+      width: 100vw !important;
+      background-color: white;
+      z-index: 999;
+    }
+  }
+</style>
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top px-3">
+  <div class="container-fluid bg-body-tertiary">
+    <a class="navbar-brand" href="/listings">
+      <i class="fa-regular fa-compass text-danger"></i>
+    </a>
+    <a class="navbar-brand" href="/listings">Explore</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <form class="d-flex ms-auto" role="search">
+        <input
+          class="form-control me-2"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+        />
+        <button class="btn btn-outline-custom" type="submit">Search</button>
+      </form>
+      <ul
+        class="navbar-nav ms-auto mb-2 mb-lg-0 me-lg-0 mx-auto gap-5 text-center gap-lg-0"
+      >
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/listings/new"
+            >Add Location</a
+          >
+        </li>
+
+        <% if(!currUser) { %>
+        <li class="nav-item">
+          <a class="nav-link fw-bold" href="/signup">Signup</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fw-bold" aria-disabled="true" href="/login"
+            >Login</a
+          >
+        </li>
+        <% } %> <% if(currUser) { %>
+        <li class="nav-item">
+          <a class="nav-link fw-bold" aria-disabled="true" href="/logout"
+            >Logout</a
+          >
+        </li>
+        <% } %>
+
+        <li class="nav-item btn-group dropend d-lg-none w-25 mx-auto">
+          <button type="button" class="btn btn-outline-light h-25 text-black">
+            Language
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-light text-black dropdown-toggle dropdown-toggle-split h-25"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <span>En</span>
+          </button>
+          <ul class="dropdown-menu z-3 position-absolute">
+            <li>Hindi</li>
+            <li>Spanish</li>
+            <li>German</li>
+            <li>French</li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link about d-lg-none" aria-current="page" href="#"
+            >About</a
+          >
+        </li>
+      </ul>
+    </div>
   </div>
 </nav>
