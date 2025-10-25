@@ -258,7 +258,9 @@
         />
         <button class="btn btn-outline-custom" type="submit">Search</button>
       </form>
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 me-lg-0 mx-auto text-center">
+      <ul
+        class="navbar-nav ms-auto mb-2 mb-lg-0 me-lg-0 mx-auto gap-5 text-center gap-lg-0"
+      >
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="/listings/new"
             >Add Location</a
@@ -281,6 +283,26 @@
           >
         </li>
         <% } %>
+
+        <li class="nav-item btn-group dropend d-lg-none w-25 mx-auto">
+          <button type="button" class="btn btn-outline-light h-25 text-black">
+            Language
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-light text-black dropdown-toggle dropdown-toggle-split h-25"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <span>En</span>
+          </button>
+          <ul class="dropdown-menu z-3 position-absolute">
+            <li>Hindi</li>
+            <li>Spanish</li>
+            <li>German</li>
+            <li>French</li>
+          </ul>
+        </li>
 
         <li class="nav-item">
           <a class="nav-link about d-lg-none" aria-current="page" href="#"
