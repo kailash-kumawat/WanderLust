@@ -199,22 +199,35 @@
 </style>
 
 <style>
-  .navbar-collapse {
-    z-index: 100;
-  }
-
   .btn-outline-custom {
     /* color: #fe424d; */
-    /* background-color: #fe424d; */
-    background-color: #3bafda;
+    background-color: #fe424d;
+    /* background-color: #3bafda; */
     /* background-color: #dc3545; */
     color: #fff;
   }
 
   .btn-outline-custom:hover {
-    background-color: #3bafda;
-    /* background-color: #fe424d; */
+    /* background-color: #3bafda; */
+    background-color: #fe424d;
     color: #fff;
+  }
+
+  .navbar-collapse {
+    z-index: 100;
+  }
+
+  @media (max-width: 991px) {
+    .navbar-collapse.show {
+      height: 100vh !important;
+      margin-top: 20px;
+      position: absolute;
+      top: 56px;
+      left: 0;
+      width: 100vw !important;
+      background-color: white;
+      z-index: 999;
+    }
   }
 </style>
 
@@ -245,9 +258,9 @@
         />
         <button class="btn btn-outline-custom" type="submit">Search</button>
       </form>
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 me-lg-0 mx-auto text-center">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/listings/new"
+          <a class="nav-link" aria-current="page" href="/listings/new"
             >Add Location</a
           >
         </li>
@@ -268,6 +281,12 @@
           >
         </li>
         <% } %>
+
+        <li class="nav-item">
+          <a class="nav-link about d-lg-none" aria-current="page" href="#"
+            >About</a
+          >
+        </li>
       </ul>
     </div>
   </div>
